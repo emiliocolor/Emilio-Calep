@@ -1,0 +1,1472 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- ===== META ROBOTS ===== -->
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <meta name="googlebot" content="index, follow" />
+
+    <!-- ===== CANONICAL ===== -->
+    <link rel="canonical" href="https://emiliocolor.com/portafolio/" />
+
+    <!-- ===== TÍTULO ===== -->
+    <title>Emilio Calep · Portafolio | Técnico en Mecatrónica</title>
+
+    <!-- ===== FAVICONS ===== -->
+    <link rel="icon" type="image/png" href="https://emiliocolor.com/img-logos/favicon.png" />
+    <link rel="apple-touch-icon" href="https://emiliocolor.com/img-logos/favicon.png" />
+
+    <!-- ===== OPEN GRAPH ===== -->
+    <meta property="og:site_name" content="Emilio Calep" />
+    <meta property="og:title" content="Emilio Calep · Portafolio | Técnico en Mecatrónica" />
+    <meta property="og:description" content="Portafolio de Emilio Calep: trayectoria, habilidades, diplomados, sustentabilidad, proyectos de impacto social y autoría propia." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://emiliocolor.com/portafolio/" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:image" content="https://emiliocolor.com/img-logos/og-image.jpg" />
+
+    <!-- ===== FUENTES E ICONOS ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <style>
+        /* ============================================
+           RESET Y VARIABLES (MISMO ESTILO DEL INDEX)
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --text-dark: #1E293B;
+            --text-muted: #475569;
+            --blue-primary: #0e42ee;
+            --blue-light: #0e42ee;
+            --blue-soft: #DBEAFE;
+            --border-light: #E2E8F0;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --font: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 2.6rem;
+            font-weight: 700;
+        }
+        .section-header h2 span {
+            color: var(--blue-primary);
+        }
+        .section-header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        /* ============================================
+           HEADER
+           ============================================ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 29px;
+            width: auto;
+            display: block;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 26px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-muted);
+            transition: 0.3s;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--blue-primary);
+        }
+
+        nav a:not(.btn-outline-header)::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: var(--blue-primary);
+            transition: 0.3s;
+        }
+
+        nav a:not(.btn-outline-header):hover::after {
+            width: 100%;
+        }
+
+        .btn-outline-header {
+            border: 1.5px solid var(--blue-primary);
+            padding: 8px 22px;
+            border-radius: 30px;
+            color: var(--blue-primary);
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.3s;
+        }
+
+        .btn-outline-header:hover {
+            background: var(--blue-primary);
+            color: #fff;
+        }
+
+        .btn-outline-header::after {
+            display: none;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.6rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* ============================================
+           HERO
+           ============================================ */
+        .hero {
+            padding: 60px 0 80px;
+            background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .hero .about-tag {
+            display: inline-block;
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            padding: 4px 18px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: 3.4rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 18px;
+            color: var(--text-dark);
+        }
+
+        .hero h1 .highlight {
+            color: var(--blue-primary);
+        }
+
+        .hero .subtitulo {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 780px;
+            margin: 0 auto 8px;
+            letter-spacing: 0.3px;
+            line-height: 1.7;
+        }
+
+        .hero .tagline {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            max-width: 780px;
+            margin: 20px auto 0;
+            line-height: 1.6;
+        }
+
+        .hero .tagline strong {
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .hero .tagline a {
+            color: var(--blue-primary);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .hero .tagline a:hover {
+            color: #1E3A8A;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        /* Leyenda jurídica */
+        .leyenda-juridica {
+            max-width: 780px;
+            margin: 24px auto 0;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            padding: 12px 22px;
+        }
+
+        /* ============================================
+           CARRUSEL (IMAGEN IZQ / TEXTO DER)
+           ============================================ */
+        .carrusel-section {
+            padding: 70px 0 50px;
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .carrusel-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .carrusel-viewport {
+            overflow: hidden;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 0;
+        }
+
+        .carrusel-track {
+            display: flex;
+            transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .carrusel-slide {
+            min-width: 100%;
+            display: flex;
+            flex-direction: row;
+            align-items: stretch;
+            padding: 0;
+        }
+
+        .carrusel-slide .slide-imagen {
+            flex: 0 0 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f4fa;
+            overflow: hidden;
+        }
+
+        .carrusel-slide .slide-imagen img {
+            width: 100%;
+            height: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            display: block;
+            border-radius: 0;
+        }
+
+        .carrusel-slide .slide-texto {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 44px;
+            background: var(--bg-primary);
+            text-align: left;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            font-weight: 500;
+            border-radius: 0;
+        }
+
+        .carrusel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            background: var(--bg-white);
+            color: var(--blue-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 5;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .carrusel-btn:hover {
+            background: var(--blue-primary);
+            color: #fff;
+            transform: translateY(-50%) scale(1.08);
+        }
+
+        .carrusel-btn-prev {
+            left: -16px;
+        }
+
+        .carrusel-btn-next {
+            right: -16px;
+        }
+
+        /* Botón de pausa / reanudar autoplay */
+        .carrusel-btn-play {
+            position: absolute;
+            top: -52px;
+            right: 0;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 1px solid var(--border-light);
+            background: var(--bg-white);
+            color: var(--blue-primary);
+            font-size: 0.9rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            z-index: 5;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .carrusel-btn-play:hover {
+            background: var(--blue-primary);
+            color: #fff;
+            transform: scale(1.08);
+        }
+
+        .carrusel-btn-play.pausado {
+            background: var(--blue-primary);
+            color: #fff;
+        }
+
+        .carrusel-indicadores {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .carrusel-indicador {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: none;
+            background: var(--border-light);
+            cursor: pointer;
+            transition: all 0.3s;
+            padding: 0;
+        }
+
+        .carrusel-indicador.activo {
+            background: var(--blue-primary);
+            transform: scale(1.2);
+            box-shadow: 0 0 0 4px rgba(14, 66, 238, 0.15);
+        }
+
+        /* ============================================
+           SECCIONES GENERALES
+           ============================================ */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-alt {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .section-alt2 {
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* ============================================
+           TARJETAS (trayectoria, habilidades, sustentabilidad)
+           ============================================ */
+        .grid-tarjetas {
+            display: grid;
+            gap: 30px;
+        }
+
+        .grid-trayectoria {
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        }
+
+        .grid-habilidades {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .grid-sustentabilidad {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .tarjeta {
+            background: var(--bg-white);
+            padding: 32px 26px;
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tarjeta:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: var(--blue-soft);
+        }
+
+        .tarjeta .tarjeta-icono {
+            font-size: 2.4rem;
+            color: var(--blue-primary);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .tarjeta h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: var(--text-dark);
+        }
+
+        .tarjeta p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+            flex: 1;
+        }
+
+        .tarjeta .date-tag {
+            display: inline-block;
+            align-self: flex-start;
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .tarjeta .btn-tarjeta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            align-self: flex-start;
+            padding: 10px 22px;
+            background: var(--blue-primary);
+            color: #fff;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .tarjeta .btn-tarjeta:hover {
+            background: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(14, 66, 238, 0.3);
+        }
+
+        /* Skill item con botón debajo */
+        .skill-item {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .skill-item .tarjeta {
+            flex: 1;
+        }
+
+        .btn-cert {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 28px;
+            background: var(--blue-primary);
+            color: #fff;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            align-self: center;
+        }
+
+        .btn-cert:hover {
+            background: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(14, 66, 238, 0.3);
+        }
+
+        /* ============================================
+           DIPLOMADOS (CTA)
+           ============================================ */
+        .diploma-cta {
+            display: flex;
+            justify-content: center;
+            margin-top: 12px;
+        }
+
+        .btn-grande {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 44px;
+            background: var(--blue-primary);
+            color: #fff;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 14px rgba(14, 66, 238, 0.3);
+        }
+
+        .btn-grande:hover {
+            background: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(14, 66, 238, 0.4);
+        }
+
+        /* ============================================
+           SUSTENTABILIDAD (tarjetas enlace)
+           ============================================ */
+        .sust-card-link {
+            display: block;
+            color: inherit;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-radius: 20px;
+        }
+
+        .sust-card-link:hover {
+            transform: translateY(-4px);
+        }
+
+        .sust-card-link .tarjeta {
+            height: 100%;
+            cursor: pointer;
+        }
+
+        /* ============================================
+           PROYECTOS Y AUTORÍA
+           ============================================ */
+        .grid-proyectos {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 30px;
+        }
+
+        .proyecto-card {
+            background: var(--bg-white);
+            padding: 32px 28px;
+            border-radius: 20px;
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .proyecto-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-4px);
+            border-color: var(--blue-soft);
+        }
+
+        .proyecto-card .proy-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 10px;
+        }
+
+        .proyecto-card .proy-nombre {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            line-height: 1.3;
+        }
+
+        .proyecto-card .proy-anio {
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .proyecto-card .proy-lugar {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 14px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .proyecto-card .proy-lugar i {
+            color: var(--blue-primary);
+        }
+
+        .proyecto-card .proy-desc {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .proyecto-card .proy-desc strong {
+            color: var(--text-dark);
+        }
+
+        .proy-botones {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .btn-proy {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s;
+            cursor: pointer;
+            border: 1.5px solid var(--blue-primary);
+            background: var(--blue-primary);
+            color: #fff;
+        }
+
+        .btn-proy:hover {
+            background: #1E3A8A;
+            border-color: #1E3A8A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(14, 66, 238, 0.25);
+        }
+
+        .btn-proy-outline {
+            background: transparent;
+            color: var(--blue-primary);
+        }
+
+        .btn-proy-outline:hover {
+            background: var(--blue-primary);
+            color: #fff;
+        }
+
+        /* ============================================
+           FOOTER
+           ============================================ */
+        footer {
+            padding: 60px 0 30px;
+            background: var(--bg-white);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .footer-brand img {
+            height: 45px;
+            width: auto;
+            display: block;
+        }
+
+        .footer-email {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-email i {
+            color: var(--blue-primary);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--blue-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* ============================================
+           RESPONSIVE
+           ============================================ */
+        @media (max-width: 1024px) {
+            .grid-proyectos {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--bg-white);
+                padding: 24px 16px;
+                border-bottom: 1px solid var(--border-light);
+                gap: 16px;
+            }
+            nav.open {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .hero h1 {
+                font-size: 2.4rem;
+            }
+            .hero .subtitulo {
+                font-size: 1rem;
+                letter-spacing: 0.2px;
+            }
+            .section-header h2 {
+                font-size: 1.9rem;
+            }
+
+            /* Carrusel en móvil: se apila verticalmente */
+            .carrusel-slide {
+                flex-direction: column;
+            }
+            .carrusel-slide .slide-imagen {
+                flex: 0 0 auto;
+                width: 100%;
+            }
+            .carrusel-slide .slide-texto {
+                flex: 1;
+                padding: 24px 20px;
+                text-align: center;
+            }
+            .carrusel-slide .slide-imagen img {
+                aspect-ratio: 16 / 9;
+            }
+            .carrusel-btn {
+                width: 36px;
+                height: 36px;
+                font-size: 0.9rem;
+            }
+            .carrusel-btn-prev {
+                left: -8px;
+            }
+            .carrusel-btn-next {
+                right: -8px;
+            }
+            .carrusel-btn-play {
+                top: -46px;
+                width: 34px;
+                height: 34px;
+                font-size: 0.8rem;
+            }
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .footer-email {
+                justify-content: center;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .carrusel-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+            .carrusel-btn-prev {
+                left: -6px;
+            }
+            .carrusel-btn-next {
+                right: -6px;
+            }
+            .carrusel-btn-play {
+                top: -42px;
+                width: 30px;
+                height: 30px;
+                font-size: 0.75rem;
+            }
+            .proyecto-card .proy-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .btn-grande {
+                padding: 14px 30px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================
+    HEADER
+    ============================================ -->
+    <header>
+        <div class="container header-content">
+            <nav id="mainNav">
+                <a href="#trayectoria">Trayectoria</a>
+                <a href="#habilidades">Habilidades</a>
+                <a href="#diplomados">Diplomados</a>
+                <a href="#sustentabilidad">Sustentabilidad</a>
+                <a href="#proyectos">Proyectos</a>
+                <a href="#autoria">Autoría</a>
+                <a href="#" class="btn-outline-header"><i class="fas fa-briefcase"></i> Portafolio</a>
+            </nav>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- ============================================
+    HERO
+    ============================================ -->
+    <section class="hero" id="hero">
+        <div class="container">
+            <div class="about-tag"><i class="fas fa-graduation-cap"></i> Portafolio Profesional</div>
+            <h1>
+                Emilio <span class="highlight">Calep</span>
+            </h1>
+            <p class="subtitulo">
+                Técnico en Mecatrónica · CECyT 9 "Juan de Dios Bátiz" (2023–2026)
+            </p>
+            <p class="tagline">
+                Estudiante, emprendedor y divulgador tecnológico impulsando proyectos de innovación, educación, impacto social
+                y desarrollo tecnológico.
+                <br><strong>Fundador y director de <a href="https://emiliocolor.com/" target="_blank" rel="noopener noreferrer">Grupo EmilioColor® México</a></strong>
+            </p>
+
+            <p class="leyenda-juridica">
+                Este contenido se realizó y revisó bajo la supervisión del mismo
+                departamento jurídico de EmilioColor.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============================================
+    CARRUSEL (IMAGEN IZQ / TEXTO DER)
+    ============================================ -->
+    <section class="carrusel-section" id="carrusel">
+        <div class="container">
+            <div class="section-header">
+                <h2>Galería <span>destacada</span> 2026</h2>
+                <p>Momentos, proyectos y colaboraciones a lo largo de mi trayectoria.</p>
+            </div>
+            <div class="carrusel-wrapper">
+                <!-- Botón de pausa / reanudar autoplay -->
+                <button class="carrusel-btn-play" id="carruselPlay" aria-label="Pausar reproducción automática" title="Pausar reproducción automática">
+                    <i class="fas fa-pause" id="carruselPlayIcon"></i>
+                </button>
+
+                <div class="carrusel-viewport">
+                    <div class="carrusel-track" id="carruselTrack">
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="112.jpg" alt="Imagen 1" loading="lazy" />
+                            </div>
+                            <div class="slide-texto">
+                                Entrega de constancia por parte de la Jefa del Departamento de Servicios Estudiantiles del CECyT 9, en reconocimiento a la integración del Comité de la Red de Género Bátiz durante el periodo de 2024-1 a 2025-2, así como a la elaboración del Manual para el Reconocimiento y Manejo de la Violencia en 2026 y del Manual de Apoyo Integral para las Redes de Género del IPN en 2024.
+                            </div>
+                        </div>
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="113.HEIC" alt="Imagen 2" loading="lazy" />
+                            </div>
+                            <div class="slide-texto">
+                                Agradecimiento de la Academia de Física del CECyT 9 por la invaluable labor realizada en el desarrollo e implementación del Laboratorio de Electromagnetismo en el semestre 2026-2, plataforma virtual e interactiva consolidada como un recurso pedagógico de alta relevancia institucional.
+                            </div>
+                        </div>
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="114.png" alt="Imagen 3" loading="lazy" />
+                            </div>
+                            <div class="slide-texto">
+                                La Jefa del Departamento de Servicios Estudiantiles y la Directora del Plantel del CECyT 9 hacen entrega de reconocimientos por el desarrollo e implementación de la Plataforma de Asesorías Institucionales del CECyT 9, durante los periodos 2025/2, 2026/1 y 2026/2, consolidada como una herramienta indispensable para el proceso de digitalización institucional.
+                            </div>
+                        </div>
+                        <div class="carrusel-slide">
+                            <div class="slide-imagen">
+                                <img src="110.png" alt="Imagen 4" loading="lazy" />
+                            </div>
+                            <div class="slide-texto">
+                                Reconocimiento y agradecimiento de la Academia de Química del CECyT 9 a la destacada iniciativa del diseño, elaboración y donación de recursos digitales y material de enseñanza y aprendizaje para el semestre 2026-1.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carrusel-btn carrusel-btn-prev" id="carruselPrev" aria-label="Anterior">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carrusel-btn carrusel-btn-next" id="carruselNext" aria-label="Siguiente">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+                <div class="carrusel-indicadores" id="carruselIndicadores"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    TRAYECTORIA Y LOGROS
+    ============================================ -->
+    <section class="section-alt" id="trayectoria">
+        <div class="container">
+            <div class="section-header">
+                <h2>Trayectoria y <span>Logros</span></h2>
+                <p>Formación y reconocimientos en instituciones líderes.</p>
+            </div>
+
+            <div class="grid-tarjetas grid-trayectoria">
+                <div class="tarjeta">
+                    <i class="fas fa-university tarjeta-icono"></i>
+                    <h3>Instituto Politécnico Nacional</h3>
+                    <p>Proyectos y actividades extracurriculares.</p>
+                    <span class="date-tag">2023‑2026</span>
+                    <a href="ipn.html" class="btn-tarjeta"><i class="fas fa-info-circle"></i> Más información</a>
+                </div>
+
+                <div class="tarjeta">
+                    <i class="fas fa-graduation-cap tarjeta-icono"></i>
+                    <h3>Universidad Nacional Autónoma de México</h3>
+                    <p>Participación en proyectos interdisciplinarios.</p>
+                    <span class="date-tag">2024‑2025</span>
+                    <a href="unam.html" class="btn-tarjeta"><i class="fas fa-info-circle"></i> Más información</a>
+                </div>
+
+                <div class="tarjeta">
+                    <i class="fas fa-city tarjeta-icono"></i>
+                    <h3>Gobierno de la Ciudad de México y otras instituciones</h3>
+                    <p>Programas de innovación y desarrollo social.</p>
+                    <span class="date-tag">2025</span>
+                    <a href="gobcdmx.html" class="btn-tarjeta"><i class="fas fa-info-circle"></i> Más información</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    HABILIDADES
+    ============================================ -->
+    <section class="section-alt2" id="habilidades">
+        <div class="container">
+            <div class="section-header">
+                <h2>Mis <span>Habilidades</span></h2>
+                <p>Competencias técnicas, blandas y emprendedoras.</p>
+            </div>
+
+            <div class="grid-tarjetas grid-habilidades">
+                <div class="skill-item">
+                    <div class="tarjeta">
+                        <i class="fas fa-comments tarjeta-icono"></i>
+                        <h3>Habilidades Blandas</h3>
+                        <p>Comunicación efectiva, liderazgo, pensamiento crítico y trabajo colaborativo.</p>
+                    </div>
+                    <a href="habilidades-blandas.html" class="btn-cert">
+                        <i class="fas fa-certificate"></i> Consultar certificaciones
+                    </a>
+                </div>
+
+                <div class="skill-item">
+                    <div class="tarjeta">
+                        <i class="fas fa-laptop-code tarjeta-icono"></i>
+                        <h3>Tecnológicas &amp; Empresariales</h3>
+                        <p>Dominio de herramientas digitales, metodologías ágiles y visión emprendedora.</p>
+                    </div>
+                    <a href="habilidades-tecnologicas-empresariales.html" class="btn-cert">
+                        <i class="fas fa-certificate"></i> Consultar certificaciones
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    DIPLOMADOS
+    ============================================ -->
+    <section class="section-alt" id="diplomados">
+        <div class="container">
+            <div class="section-header">
+                <h2>Diplomados &amp; <span>Rutas de Conocimiento</span></h2>
+                <p>Diplomados y rutas de conocimiento orientados al desarrollo de habilidades técnicas, tecnológicas y profesionales.</p>
+            </div>
+            <div class="diploma-cta">
+                <a href="diplomados-rutas.html" class="btn-grande">
+                    <i class="fas fa-graduation-cap"></i> Explorar diplomados
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    SUSTENTABILIDAD
+    ============================================ -->
+    <section class="section-alt2" id="sustentabilidad">
+        <div class="container">
+            <div class="section-header">
+                <h2>Sustentabilidad &amp; <span>Medio Ambiente</span></h2>
+                <p>Certificados y proyectos orientados al desarrollo sostenible.</p>
+            </div>
+
+            <div class="grid-tarjetas grid-sustentabilidad">
+                <a href="#" class="sust-card-link" target="_blank" rel="noopener noreferrer">
+                    <div class="tarjeta">
+                        <i class="fas fa-globe-americas tarjeta-icono"></i>
+                        <h3>Gestión ambiental</h3>
+                        <p>Aplicación de economía circular, consumo sostenible y evaluación de huellas de carbono, hídrica y ecológica.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="sust-card-link" target="_blank" rel="noopener noreferrer">
+                    <div class="tarjeta">
+                        <i class="fas fa-seedling tarjeta-icono"></i>
+                        <h3>Conservación ambiental</h3>
+                        <p>Conocimientos en gobernanza del agua y del aire, calidad ambiental, composta y soluciones basadas en techos verdes.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="sust-card-link" target="_blank" rel="noopener noreferrer">
+                    <div class="tarjeta">
+                        <i class="fas fa-recycle tarjeta-icono"></i>
+                        <h3>Innovación sostenible</h3>
+                        <p>Desarrollo de proyectos con criterios de sostenibilidad, diseño de embalajes sostenibles y estrategias de residuos cero.</p>
+                    </div>
+                </a>
+            </div>
+
+            <div class="diploma-cta" style="margin-top: 40px;">
+                <a href="certificaciones-sustentabilidad.html" class="btn-grande">
+                    <i class="fas fa-certificate"></i> Ver certificaciones
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    PROYECTOS DE IMPACTO SOCIAL
+    ============================================ -->
+    <section class="section-alt" id="proyectos">
+        <div class="container">
+            <div class="section-header">
+                <h2>Proyectos Externos de <span>Impacto Social</span></h2>
+                <p>Iniciativas educativas, tecnológicas y de divulgación desarrolladas para generar impacto social fuera de cualquier institución pública.</p>
+            </div>
+
+            <div class="grid-proyectos">
+                <div class="proyecto-card">
+                    <div class="proy-header">
+                        <span class="proy-nombre">Comunidad de Estudios Independiente "Juan de Dios Bátiz" (CEI)</span>
+                        <span class="proy-anio">2024 - 2026</span>
+                    </div>
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i>Ciudad de México, Miguel Hidalgo, Popotla
+                    </div>
+                    <p class="proy-desc">
+                        <strong>Fundador y Ex-Secretario Administrativo y Coordinador de la Unidad Materiales Educativos</strong> de una iniciativa estudiantil, académica e independiente, <strong>sin fines de lucro</strong>, creada para fomentar el aprendizaje colaborativo, el intercambio de conocimientos y el desarrollo científico entre sus integrantes. <strong>Logrando 650 integrantes</strong>.
+                    </p>
+                    <div class="proy-botones">
+                        <a class="btn-proy"
+                           href="https://proyectos.emiliocolor.com/cei-jdb/acta-constitutiva.pdf"
+                           target="_blank">
+                            <i class="fas fa-users"></i>Evidencias
+                        </a>
+                        <a class="btn-proy btn-proy-outline"
+                           href="https://www.comunidaddeestudiocecyt9.com/"
+                           target="_blank">
+                            <i class="fas fa-globe"></i> Página oficial
+                        </a>
+                        <a class="btn-proy btn-proy-outline"
+                           href="https://proyectos.emiliocolor.com/cei-jdb/informacion"
+                           target="_blank">
+                            <i class="fas fa-book"></i> Información General
+                        </a>
+                    </div>
+                </div>
+
+                <div class="proyecto-card">
+                    <div class="proy-header">
+                        <span class="proy-nombre">EmilioColor Proyectos</span>
+                        <span class="proy-anio">2024 - Actualidad</span>
+                    </div>
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i> Ciudad de México, México
+                    </div>
+                    <p class="proy-desc">
+                        Plataforma fundada y dirigida como parte de la marca EmilioColor®, destinada
+                        al desarrollo, organización y difusión de proyectos de impacto social,
+                        científico, educativo, tecnológico, ambiental y comunitario.
+                    </p>
+                    <div class="proy-botones">
+                        <a class="btn-proy"
+                           href="https://proyectos.emiliocolor.com/"
+                           target="_blank">
+                            <i class="fas fa-eye"></i> Ver proyectos
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    AUTORÍA PROPIA
+    ============================================ -->
+    <section class="section-alt2" id="autoria">
+        <div class="container">
+            <div class="section-header">
+                <h2>Autoría <span>Propia</span></h2>
+                <p>Obras originales desarrolladas como autor, registradas para la protección de sus derechos de propiedad intelectual.</p>
+            </div>
+
+            <div class="grid-proyectos">
+                <div class="proyecto-card">
+                    <div class="proy-header">
+                        <span class="proy-nombre">Manual de Identificación de la Violencia</span>
+                        <span class="proy-anio">2025</span>
+                    </div>
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i> Ciudad de México, México
+                    </div>
+                    <p class="proy-desc">
+                        Autor del <strong>Manual de Identificación de la Violencia</strong>, una obra orientada a la sensibilización, identificación y prevención de la violencia con perspectiva de género, desarrollada como material de consulta para fortalecer la cultura de prevención y respeto dentro de la comunidad. La obra se encuentra <strong>registrada ante el Instituto Nacional del Derecho de Autor (INDAUTOR)</strong>.
+                    </p>
+                    <div class="proy-botones">
+                        <a class="btn-proy"
+                           href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20informaci%C3%B3n%20-%20Manual%20de%20Identificaci%C3%B3n%20de%20la%20Violencia&body=Hola%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20el%20Manual%20de%20Identificaci%C3%B3n%20de%20la%20Violencia.%0D%0A%0D%0AGracias.%0D%0A"
+                           target="_blank">
+                            <i class="fas fa-envelope"></i> Solicitar más información
+                        </a>
+                    </div>
+                </div>
+
+                <div class="proyecto-card">
+                    <div class="proy-header">
+                        <span class="proy-nombre">El misterio de Yanggakdo</span>
+                        <span class="proy-anio">2025</span>
+                    </div>
+                    <div class="proy-lugar">
+                        <i class="fas fa-map-pin"></i> Proyecto Editorial
+                    </div>
+                    <p class="proy-desc">
+                        Autor de la novela de ficción <strong>El misterio de Yanggakdo</strong>, una obra literaria original que refleja mi interés por la creación narrativa y el desarrollo editorial, utilizando el estilo de Juan Rulfo. La obra se encuentra <strong>registrada ante el Instituto Nacional del Derecho de Autor (INDAUTOR)</strong>.
+                    </p>
+                    <div class="proy-botones">
+                        <a class="btn-proy"
+                           href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20informaci%C3%B3n%20-%20El%20misterio%20de%20Yanggakdo&body=Hola%2C%0D%0A%0D%0AMe%20gustar%C3%ADa%20solicitar%20m%C3%A1s%20informaci%C3%B3n%20sobre%20la%20obra%20%22El%20misterio%20de%20Yanggakdo%22.%0D%0A%0D%0AGracias.%0D%0A"
+                           target="_blank">
+                            <i class="fas fa-envelope"></i> Solicitar más información
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
+    FOOTER
+    ============================================ -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+
+                <div class="footer-email">
+                    <i class="fas fa-envelope"></i> contacto@emiliocalep.emiliocolor.com
+                </div>
+                <div class="footer-socials">
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2023-<span id="current-year"></span> Emilio Calep. Todos los derechos reservados.</span>
+                <script>
+                    document.getElementById("current-year").textContent = new Date().getFullYear();
+                </script>
+                <span>Hecho con <i class="fas fa-heart" style="color:#0e42ee;"></i> en México</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================
+    JAVASCRIPT
+    ============================================ -->
+    <script>
+        // MENÚ HAMBURGUESA
+        const hamburger = document.getElementById('hamburger');
+        const nav = document.getElementById('mainNav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+
+        document.querySelectorAll('#mainNav a').forEach(link => {
+            link.addEventListener('click', () => {
+                nav.classList.remove('open');
+            });
+        });
+
+        // SCROLL SUAVE
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href === "#") return;
+                e.preventDefault();
+                const target = document.querySelector(href);
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // CARRUSEL
+        (function() {
+            const track = document.getElementById('carruselTrack');
+            const prevBtn = document.getElementById('carruselPrev');
+            const nextBtn = document.getElementById('carruselNext');
+            const indicadoresContainer = document.getElementById('carruselIndicadores');
+            const playBtn = document.getElementById('carruselPlay');
+            const playIcon = document.getElementById('carruselPlayIcon');
+
+            if (!track) return;
+
+            const slides = track.querySelectorAll('.carrusel-slide');
+            const totalSlides = slides.length;
+            let currentIndex = 0;
+            let autoplayInterval = null;
+            let autoplayActivo = true; // Estado del autoplay
+
+            function crearIndicadores() {
+                indicadoresContainer.innerHTML = '';
+                for (let i = 0; i < totalSlides; i++) {
+                    const btn = document.createElement('button');
+                    btn.classList.add('carrusel-indicador');
+                    btn.setAttribute('aria-label', `Ir a la imagen ${i + 1}`);
+                    if (i === 0) btn.classList.add('activo');
+                    btn.addEventListener('click', () => {
+                        irA(i);
+                        reiniciarAutoplay();
+                    });
+                    indicadoresContainer.appendChild(btn);
+                }
+            }
+
+            function actualizarIndicadores() {
+                const indicadores = indicadoresContainer.querySelectorAll('.carrusel-indicador');
+                indicadores.forEach((ind, i) => {
+                    ind.classList.toggle('activo', i === currentIndex);
+                });
+            }
+
+            function irA(index) {
+                if (index < 0) index = totalSlides - 1;
+                if (index >= totalSlides) index = 0;
+                currentIndex = index;
+                track.style.transform = `translateX(-${currentIndex * 100}%)`;
+                actualizarIndicadores();
+            }
+
+            function siguiente() { irA(currentIndex + 1); }
+            function anterior() { irA(currentIndex - 1); }
+
+            nextBtn.addEventListener('click', () => { siguiente(); reiniciarAutoplay(); });
+            prevBtn.addEventListener('click', () => { anterior(); reiniciarAutoplay(); });
+
+            document.addEventListener('keydown', (e) => {
+                const rect = track.getBoundingClientRect();
+                const enPantalla = rect.top < window.innerHeight && rect.bottom > 0;
+                if (!enPantalla) return;
+                if (e.key === 'ArrowRight') { siguiente(); reiniciarAutoplay(); }
+                else if (e.key === 'ArrowLeft') { anterior(); reiniciarAutoplay(); }
+            });
+
+            function iniciarAutoplay() {
+                if (autoplayInterval) clearInterval(autoplayInterval);
+                autoplayInterval = setInterval(siguiente, 5000);
+                autoplayActivo = true;
+                playBtn.classList.remove('pausado');
+                playIcon.classList.remove('fa-play');
+                playIcon.classList.add('fa-pause');
+                playBtn.setAttribute('aria-label', 'Pausar reproducción automática');
+                playBtn.setAttribute('title', 'Pausar reproducción automática');
+            }
+
+            function detenerAutoplay() {
+                if (autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                    autoplayInterval = null;
+                }
+                autoplayActivo = false;
+                playBtn.classList.add('pausado');
+                playIcon.classList.remove('fa-pause');
+                playIcon.classList.add('fa-play');
+                playBtn.setAttribute('aria-label', 'Reanudar reproducción automática');
+                playBtn.setAttribute('title', 'Reanudar reproducción automática');
+            }
+
+            function reiniciarAutoplay() {
+                if (autoplayActivo) {
+                    if (autoplayInterval) clearInterval(autoplayInterval);
+                    autoplayInterval = setInterval(siguiente, 5000);
+                }
+            }
+
+            // Botón pausa / reanudar
+            playBtn.addEventListener('click', () => {
+                if (autoplayActivo) {
+                    detenerAutoplay();
+                } else {
+                    iniciarAutoplay();
+                }
+            });
+
+            // Pausa al pasar el cursor, reanuda al salir (solo si no está pausado manualmente)
+            track.addEventListener('mouseenter', () => {
+                if (autoplayActivo && autoplayInterval) {
+                    clearInterval(autoplayInterval);
+                    autoplayInterval = null;
+                }
+            });
+            track.addEventListener('mouseleave', () => {
+                if (autoplayActivo && !autoplayInterval) {
+                    autoplayInterval = setInterval(siguiente, 5000);
+                }
+            });
+
+            let touchStartX = 0, touchEndX = 0;
+            track.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+            track.addEventListener('touchend', (e) => {
+                touchEndX = e.changedTouches[0].screenX;
+                const diff = touchStartX - touchEndX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0) siguiente(); else anterior();
+                    reiniciarAutoplay();
+                }
+            }, { passive: true });
+
+            crearIndicadores();
+            irA(0);
+            iniciarAutoplay();
+            window.addEventListener('resize', () => { irA(currentIndex); });
+        })();
+    </script>
+</body>
+</html>

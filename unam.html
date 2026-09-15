@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividades UNAM | Emilio Calep</title>
+    
+    <link rel="icon" type="image/png" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link rel="apple-touch-icon" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* --- Paleta amarilla/dorada en lugar de guinda/rojo --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #fff9e6 0%, #fef3c7 100%);
+            --accent-pastel: #fde68a;
+            --primary-gold: #92400e;  /* dorado oscuro en lugar de rojo */
+            --primary-amber: #b45309;  /* ámbar profundo */
+            --text-main: #1a1a1a;
+            --text-muted: #4b5563;
+            --glass: rgba(255, 255, 255, 0.85);
+            --card-radius: 28px;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-main);
+            padding: 50px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(253, 230, 138, 0.4) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(251, 191, 36, 0.25) 0%, transparent 40%);
+            z-index: -1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 3.2rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #78350f, #b45309);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-gold);
+            background: var(--accent-pastel);
+            padding: 8px 24px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home:hover {
+            background: #fde68a;
+            transform: translateY(-2px);
+        }
+        .search-container {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 550px;
+            padding: 20px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .search-box:focus {
+            outline: 2px solid #fbbf24;
+            border-color: transparent;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .cert-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--card-radius);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+        }
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: #fbbf24;
+            box-shadow: 0 20px 40px rgba(180, 83, 9, 0.1);
+        }
+        .cert-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: #111;
+            margin: 0 0 12px 0;
+        }
+        .description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-style: italic;
+            border-left: 3px solid #fbbf24;
+            padding-left: 15px;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .info-row i {
+            color: var(--primary-amber);
+            width: 20px;
+        }
+        .info-row a {
+            color: var(--primary-amber);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted transparent;
+            transition: border-color 0.2s;
+        }
+        .info-row a:hover {
+            border-bottom-color: var(--primary-amber);
+        }
+        .request-btn {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--primary-amber);
+            border: 2px solid var(--primary-amber);
+            border-radius: 40px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        .request-btn:hover {
+            background: var(--primary-amber);
+            color: white;
+            transform: scale(1.02);
+            border-color: var(--primary-amber);
+        }
+        .empty-state {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--glass);
+            border-radius: var(--card-radius);
+            display: none;
+        }
+
+        /* --- Estilos para los títulos de sección --- */
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-gold);
+            margin: 50px 0 25px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-pastel);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title i {
+            font-size: 1.6rem;
+            color: var(--primary-amber);
+        }
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Actividades UNAM</h1>
+            <a href="index.html" class="back-home">
+                <i class="fa-solid fa-arrow-left"></i> Volver a inicio
+            </a>
+            <span class="subtitle"><i class="fa-solid fa-user-check"></i> Emilio Calep</span>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Buscar actividad, lugar, participación o descripción..." id="searchInput" />
+        </div>
+
+        <div id="cardsContainer">
+            <!-- ========================================================= -->
+            <!-- SECCIÓN 1: UNAM JURIQUILLA                                -->
+            <!-- ========================================================= -->
+            <h2 class="section-title"> UNAM Juriquilla</h2>
+            <div class="bento-grid">
+                <!-- Taller de Ciencia para Jóvenes 2024 -->
+                <div class="cert-card" data-search="Taller Ciencia Jóvenes 2024 Campus UNAM Juriquilla Querétaro 23 al 29 julio Participante">
+                    <h2 class="cert-title">Taller de Ciencia para Jóvenes 2024</h2>
+                    <div class="description">Participación en el taller de ciencia para jóvenes, con actividades prácticas y experimentales en el campus UNAM Juriquilla, Querétaro.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Campus UNAM Juriquilla, Querétaro</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>23 al 29 de julio, 2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Participante</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Taller%20de%20Ciencia%20para%20J%C3%B3venes%202024&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Taller%20de%20Ciencia%20para%20J%C3%B3venes%202024%22%0ALugar%3A%20Campus%20UNAM%20Juriquilla%2C%20Quer%C3%A9taro%0AFecha%3A%2023%20al%2029%20de%20julio%2C%202024%0AParticipaci%C3%B3n%3A%20Participante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20en%20el%20taller%20de%20ciencia%20para%20j%C3%B3venes%2C%20con%20actividades%20pr%C3%A1cticas%20y%20experimentales%20en%20el%20campus%20UNAM%20Juriquilla.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- SECCIÓN 2: CCH VALLEJO                                    -->
+            <!-- ========================================================= -->
+            <h2 class="section-title"> CCH Vallejo</h2>
+            <div class="bento-grid">
+                <!-- Tercer Coloquio de Comunicación Social y Humana -->
+                <div class="cert-card" data-search="Tercer Coloquio Comunicación Social Humana CCH Vallejo agosto 2024 Participante">
+                    <h2 class="cert-title">Tercer Coloquio de Comunicación Social y Humana</h2>
+                    <div class="description">Participación en el tercer coloquio de comunicación social y humana, un espacio de reflexión e intercambio académico en el CCH Vallejo.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>CCH Vallejo, UNAM</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>Agosto, 2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Participante</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Tercer%20Coloquio%20de%20Comunicaci%C3%B3n%20Social%20y%20Humana&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Tercer%20Coloquio%20de%20Comunicaci%C3%B3n%20Social%20y%20Humana%22%0ALugar%3A%20CCH%20Vallejo%2C%20UNAM%0AFecha%3A%20Agosto%2C%202024%0AParticipaci%C3%B3n%3A%20Participante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20en%20el%20tercer%20coloquio%20de%20comunicaci%C3%B3n%20social%20y%20humana%2C%20un%20espacio%20de%20reflexi%C3%B3n%20e%20intercambio%20acad%C3%A9mico.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- SECCIÓN 3: FACULTAD DE CIENCIAS POLÍTICAS Y SOCIALES      -->
+            <!-- ========================================================= -->
+            <h2 class="section-title"> Facultad de Ciencias Políticas y Sociales</h2>
+            <div class="bento-grid">
+                <!-- Seminario Permanente de Tiempo de Elecciones -->
+                <div class="cert-card" data-search="Seminario Permanente Tiempo de Elecciones Análisis Relación Bilateral México Estados Unidos Proceso Electoral 2024-2 Facultad Ciencias Políticas Sociales UNAM Participante">
+                    <h2 class="cert-title">Seminario Permanente de Tiempo de Elecciones: Análisis de la Relación Bilateral México-Estados Unidos de cara al Proceso Electoral 2024-2</h2>
+                    <div class="description">Participación en el seminario permanente de análisis sobre la relación bilateral México-Estados Unidos en el contexto del proceso electoral 2024-2, organizado por la Facultad de Ciencias Políticas y Sociales de la UNAM.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Facultad de Ciencias Políticas y Sociales, UNAM</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Participante</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Seminario%20Permanente%20de%20Tiempo%20de%20Elecciones&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Seminario%20Permanente%20de%20Tiempo%20de%20Elecciones%3A%20An%C3%A1lisis%20de%20la%20Relaci%C3%B3n%20Bilateral%20M%C3%A9xico-Estados%20Unidos%20de%20cara%20al%20Proceso%20Electoral%202024-2%22%0ALugar%3A%20Facultad%20de%20Ciencias%20Pol%C3%ADticas%20y%20Sociales%2C%20UNAM%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Participante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20en%20el%20seminario%20permanente%20de%20an%C3%A1lisis%20sobre%20la%20relaci%C3%B3n%20bilateral%20M%C3%A9xico-Estados%20Unidos%20en%20el%20contexto%20del%20proceso%20electoral%202024-2.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div style="text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+                <p style="color: var(--text-muted); font-family: 'Poppins'; font-weight: 600; font-size: 0.9rem; margin-bottom: 10px;">
+                    <i class="fa-solid fa-shield-halved"></i> Aviso de Privacidad
+                </p>
+                <p style="max-width: 600px; margin: 0 auto 25px; color: var(--text-muted); font-family: 'Inter'; font-size: 0.8rem; line-height: 1.6; opacity: 0.8;">
+                    Los datos personales y profesionales aquí mostrados son de carácter público y se exhiben exclusivamente con fines de validación de competencias y transparencia profesional.
+                </p>
+                <p style="color: var(--primary-amber); font-family: 'Poppins'; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;">
+                    ÚLTIMA ACTUALIZACIÓN: ABRIL 2026
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.cert-card');
+        const emptyState = document.querySelector('.empty-state');
+
+        searchInput.addEventListener('input', function() {
+            const term = this.value.toLowerCase().trim();
+            let anyVisible = false;
+
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search') || '';
+                const matches = searchData.toLowerCase().includes(term);
+                card.style.display = matches ? 'flex' : 'none';
+                if (matches) anyVisible = true;
+            });
+
+            // Ocultar títulos de sección si no hay tarjetas visibles en su grupo
+            document.querySelectorAll('.section-title').forEach(title => {
+                const grid = title.nextElementSibling;
+                if (grid) {
+                    const visibleCards = grid.querySelectorAll('.cert-card[style*="display: flex"]');
+                    title.style.display = visibleCards.length > 0 ? 'flex' : 'none';
+                }
+            });
+
+            if (emptyState) {
+                emptyState.style.display = anyVisible ? 'none' : 'block';
+            }
+        });
+    </script>
+</body>
+</html>

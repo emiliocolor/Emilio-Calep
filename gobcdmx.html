@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividades Gobierno y más | Emilio Calep</title>
+    
+    <link rel="icon" type="image/png" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link rel="apple-touch-icon" href="https://emiliocolor.com/img-logos/favicon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Poppins:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        /* --- Paleta gris profesional --- */
+        :root {
+            --bg-gradient: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            --accent-pastel: #e5e7eb;
+            --primary-gray: #1f2937;   /* gris oscuro principal */
+            --primary-slate: #374151;  /* gris pizarra */
+            --text-main: #1a1a1a;
+            --text-muted: #4b5563;
+            --glass: rgba(255, 255, 255, 0.85);
+            --card-radius: 28px;
+            --shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            color: var(--text-main);
+            padding: 50px 20px;
+            font-family: 'Inter', sans-serif;
+        }
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 10% 10%, rgba(156, 163, 175, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 90%, rgba(107, 114, 128, 0.1) 0%, transparent 40%);
+            z-index: -1;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        header h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 3.2rem;
+            letter-spacing: -1.5px;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #111827, #374151);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            color: var(--primary-gray);
+            background: var(--accent-pastel);
+            padding: 8px 24px;
+            border-radius: 50px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home {
+            background: #e5e7eb;
+            color: #374151;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .back-home:hover {
+            background: #d1d5db;
+            transform: translateY(-2px);
+        }
+        .search-container {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+        .search-box {
+            width: 100%;
+            max-width: 550px;
+            padding: 20px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            font-size: 1.1rem;
+            box-shadow: var(--shadow);
+            transition: all 0.3s ease;
+        }
+        .search-box:focus {
+            outline: 2px solid #6b7280;
+            border-color: transparent;
+        }
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 30px;
+        }
+        .cert-card {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: var(--card-radius);
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s ease;
+            box-shadow: var(--shadow);
+        }
+        .cert-card:hover {
+            transform: translateY(-10px);
+            border-color: #6b7280;
+            box-shadow: 0 20px 40px rgba(55, 65, 81, 0.1);
+        }
+        .cert-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.6rem;
+            line-height: 1.2;
+            color: #111;
+            margin: 0 0 12px 0;
+        }
+        .description {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            font-style: italic;
+            border-left: 3px solid #6b7280;
+            padding-left: 15px;
+        }
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .info-row i {
+            color: var(--primary-slate);
+            width: 20px;
+        }
+        .info-row a {
+            color: var(--primary-slate);
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dotted transparent;
+            transition: border-color 0.2s;
+        }
+        .info-row a:hover {
+            border-bottom-color: var(--primary-slate);
+        }
+        .request-btn {
+            margin-top: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: transparent;
+            color: var(--primary-slate);
+            border: 2px solid var(--primary-slate);
+            border-radius: 40px;
+            padding: 12px 24px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            width: fit-content;
+        }
+        .request-btn:hover {
+            background: var(--primary-slate);
+            color: white;
+            transform: scale(1.02);
+            border-color: var(--primary-slate);
+        }
+        .empty-state {
+            grid-column: 1/-1;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--glass);
+            border-radius: var(--card-radius);
+            display: none;
+        }
+
+        /* --- Estilos para los títulos de sección (sin iconos fas fa) --- */
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 1.8rem;
+            color: var(--primary-gray);
+            margin: 50px 0 25px 0;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-pastel);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .section-title:first-of-type {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.2rem;
+            }
+            header {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .section-title {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Actividades de gobierno y más</h1>
+            <a href="index.html" class="back-home">
+                <i class="fa-solid fa-arrow-left"></i> Volver a inicio
+            </a>
+            <span class="subtitle"><i class="fa-solid fa-user-check"></i> Emilio Calep</span>
+        </header>
+
+        <div class="search-container">
+            <input type="text" class="search-box" placeholder="Buscar actividad, lugar, participación o descripción..." id="searchInput" />
+        </div>
+
+        <div id="cardsContainer">
+            <!-- ========================================================= -->
+            <!-- SECCIÓN 1: GOBIERNO DE LA CIUDAD DE MÉXICO - PILARES      -->
+            <!-- ========================================================= -->
+            <h2 class="section-title">Gobierno de la Ciudad de México — PILARES</h2>
+            <div class="bento-grid">
+                <!-- Club de Robótica PILARES -->
+                <div class="cert-card" data-search="Club Robótica PILARES Ciudad de México Participante">
+                    <h2 class="cert-title">Club de Robótica PILARES</h2>
+                    <div class="description">Participación activa en el club de robótica de los PILARES de la Ciudad de México, desarrollando proyectos y competencias tecnológicas.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>PILARES, Ciudad de México</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2023 – 2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Participante</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Club%20de%20Rob%C3%B3tica%20PILARES&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Club%20de%20Rob%C3%B3tica%20PILARES%22%0ALugar%3A%20PILARES%2C%20Ciudad%20de%20M%C3%A9xico%0AA%C3%B1o%3A%202023%20%E2%80%93%202024%0AParticipaci%C3%B3n%3A%20Participante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20activa%20en%20el%20club%20de%20rob%C3%B3tica%20de%20los%20PILARES%20de%20la%20Ciudad%20de%20M%C3%A9xico.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+
+                <!-- 2do Lugar Concurso Interpilares Minisumo -->
+                <div class="cert-card" data-search="Concurso Robótica Interpilares Minisumo Segundo Lugar Monumento Revolución Diciembre 2023">
+                    <h2 class="cert-title">2° Lugar — Concurso de Robótica Interpilares, Categoría Minisumo</h2>
+                    <div class="description">Ganador del segundo lugar en la categoría de minisumo durante el concurso de robótica interpilares, celebrado en el Monumento a la Revolución.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Monumento a la Revolución, CDMX</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>Diciembre, 2023</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Competidor — 2° Lugar</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%202%C2%B0%20Lugar%20Concurso%20Interpilares%20Minisumo&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%222%C2%B0%20Lugar%20%E2%80%94%20Concurso%20de%20Rob%C3%B3tica%20Interpilares%2C%20Categor%C3%ADa%20Minisumo%22%0ALugar%3A%20Monumento%20a%20la%20Revoluci%C3%B3n%2C%20CDMX%0AFecha%3A%20Diciembre%2C%202023%0AParticipaci%C3%B3n%3A%20Competidor%20%E2%80%94%202%C2%B0%20Lugar%0ADescripci%C3%B3n%3A%20Ganador%20del%20segundo%20lugar%20en%20la%20categor%C3%ADa%20de%20minisumo%20durante%20el%20concurso%20de%20rob%C3%B3tica%20interpilares.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+
+                <!-- Taller de Orientación Vocacional y Científica PILARES Villa de Aragón -->
+                <div class="cert-card" data-search="Taller Orientación Vocacional Científica PILARES Villa Aragón 25 julio 24 agosto 2023 Estudiante">
+                    <h2 class="cert-title">1ª Edición del Taller de Orientación Vocacional y Científica</h2>
+                    <div class="description">Participación como estudiante en la primera edición del taller de orientación vocacional y científica, realizado en PILARES Villa de Aragón.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>PILARES Villa de Aragón, CDMX</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>25 de julio al 24 de agosto, 2023</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Estudiante</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Taller%20de%20Orientaci%C3%B3n%20Vocacional%20y%20Cient%C3%ADfica&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%221%C2%AA%20Edici%C3%B3n%20del%20Taller%20de%20Orientaci%C3%B3n%20Vocacional%20y%20Cient%C3%ADfica%22%0ALugar%3A%20PILARES%20Villa%20de%20Arag%C3%B3n%2C%20CDMX%0AFecha%3A%2025%20de%20julio%20al%2024%20de%20agosto%2C%202023%0AParticipaci%C3%B3n%3A%20Estudiante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20como%20estudiante%20en%20la%20primera%20edici%C3%B3n%20del%20taller%20de%20orientaci%C3%B3n%20vocacional%20y%20cient%C3%ADfica.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+
+                <!-- Staff Fórmula R Encuentro de Robótica PILARES Festival Chapultepec -->
+                <div class="cert-card" data-search="Staff Fórmula R Encuentro Robótica PILARES Festival Chapultepec Agosto 2024">
+                    <h2 class="cert-title">Staff en Fórmula R — Encuentro de Robótica PILARES</h2>
+                    <div class="description">Participación como staff en la Fórmula R del Encuentro de Robótica PILARES, dentro del marco del Festival Chapultepec.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Festival Chapultepec, CDMX</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>Agosto, 2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Staff</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Staff%20F%C3%B3rmula%20R%20Encuentro%20de%20Rob%C3%B3tica%20PILARES&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Staff%20en%20F%C3%B3rmula%20R%20%E2%80%94%20Encuentro%20de%20Rob%C3%B3tica%20PILARES%22%0ALugar%3A%20Festival%20Chapultepec%2C%20CDMX%0AFecha%3A%20Agosto%2C%202024%0AParticipaci%C3%B3n%3A%20Staff%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20como%20staff%20en%20la%20F%C3%B3rmula%20R%20del%20Encuentro%20de%20Rob%C3%B3tica%20PILARES.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+
+                <!-- 1er Lugar Futbot Categoría Sumo +13 Encuentro de Robótica PILARES -->
+                <div class="cert-card" data-search="Primer Lugar Futbot Categoría Sumo más de 13 años Encuentro Robótica PILARES">
+                    <h2 class="cert-title">1° Lugar — Futbot, Categoría Sumo (+13 años)</h2>
+                    <div class="description">Ganador del primer lugar en la categoría de futbot sumo para mayores de 13 años, durante el Encuentro de Robótica PILARES.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Encuentro de Robótica PILARES, CDMX</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Competidor — 1° Lugar</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%201%C2%B0%20Lugar%20Futbot%20Categor%C3%ADa%20Sumo&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%221%C2%B0%20Lugar%20%E2%80%94%20Futbot%2C%20Categor%C3%ADa%20Sumo%20(%2B13%20a%C3%B1os)%22%0ALugar%3A%20Encuentro%20de%20Rob%C3%B3tica%20PILARES%2C%20CDMX%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Competidor%20%E2%80%94%201%C2%B0%20Lugar%0ADescripci%C3%B3n%3A%20Ganador%20del%20primer%20lugar%20en%20la%20categor%C3%ADa%20de%20futbot%20sumo%20para%20mayores%20de%2013%20a%C3%B1os.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- SECCIÓN 2: SECRETARÍA DE SALUD                            -->
+            <!-- ========================================================= -->
+            <h2 class="section-title">Secretaría de Salud</h2>
+            <div class="bento-grid">
+                <!-- Curso Acceso sin Discriminación a los Servicios de Salud -->
+                <div class="cert-card" data-search="Curso Acceso sin Discriminación Servicios Salud Personas Diversidad Sexual Secretaría Salud Participante">
+                    <h2 class="cert-title">Curso: Acceso sin Discriminación a los Servicios de Salud para las Personas de la Diversidad Sexual</h2>
+                    <div class="description">Participación en el curso sobre acceso sin discriminación a los servicios de salud para personas de la diversidad sexual, impartido por la Secretaría de Salud.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Secretaría de Salud</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Participante</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%20Curso%20Acceso%20sin%20Discriminaci%C3%B3n%20a%20los%20Servicios%20de%20Salud&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%22Curso%3A%20Acceso%20sin%20Discriminaci%C3%B3n%20a%20los%20Servicios%20de%20Salud%20para%20las%20Personas%20de%20la%20Diversidad%20Sexual%22%0ALugar%3A%20Secretar%C3%ADa%20de%20Salud%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Participante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20en%20el%20curso%20sobre%20acceso%20sin%20discriminaci%C3%B3n%20a%20los%20servicios%20de%20salud%20para%20personas%20de%20la%20diversidad%20sexual.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+            </div>
+
+            <!-- ========================================================= -->
+            <!-- SECCIÓN 3: UNIVERSIDAD AUTÓNOMA DE QUERÉTARO              -->
+            <!-- ========================================================= -->
+            <h2 class="section-title">Universidad Autónoma de Querétaro</h2>
+            <div class="bento-grid">
+                <!-- 7mo Simposium Internacional de los Comités de Bioética -->
+                <div class="cert-card" data-search="7mo Simposium Internacional Comités Bioética Universidad Autónoma Querétaro Facultad Filosofía Participante">
+                    <h2 class="cert-title">7° Simposium Internacional de los Comités de Bioética</h2>
+                    <div class="description">Participación en el 7° Simposium Internacional de los Comités de Bioética, organizado por la Facultad de Filosofía de la Universidad Autónoma de Querétaro.</div>
+                    <div class="info-row"><i class="fa-solid fa-location-dot"></i> <span>Facultad de Filosofía, Universidad Autónoma de Querétaro</span></div>
+                    <div class="info-row"><i class="fa-regular fa-calendar"></i> <span>2024</span></div>
+                    <div class="info-row"><i class="fa-regular fa-user"></i> <span>Participante</span></div>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=contacto@emiliocalep.emiliocolor.com&su=Solicitud%20de%20constancia%20-%207%C2%B0%20Simposium%20Internacional%20de%20los%20Comit%C3%A9s%20de%20Bio%C3%A9tica&body=Solicito%20informaci%C3%B3n%20sobre%20la%20constancia%20de%20participaci%C3%B3n%20en%20la%20actividad%3A%0A%0A%227%C2%B0%20Simposium%20Internacional%20de%20los%20Comit%C3%A9s%20de%20Bio%C3%A9tica%22%0ALugar%3A%20Facultad%20de%20Filosof%C3%ADa%2C%20Universidad%20Aut%C3%B3noma%20de%20Quer%C3%A9taro%0AA%C3%B1o%3A%202024%0AParticipaci%C3%B3n%3A%20Participante%0ADescripci%C3%B3n%3A%20Participaci%C3%B3n%20en%20el%207%C2%B0%20Simposium%20Internacional%20de%20los%20Comit%C3%A9s%20de%20Bio%C3%A9tica.%0A%0AAgradezco%20su%20atenci%C3%B3n." target="_blank" class="request-btn">
+                        <i class="fa-regular fa-envelope"></i> Solicitar constancia
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <div style="text-align: center; margin-top: 60px; padding: 20px; border-top: 1px solid rgba(0,0,0,0.05);">
+                <p style="color: var(--text-muted); font-family: 'Poppins'; font-weight: 600; font-size: 0.9rem; margin-bottom: 10px;">
+                    <i class="fa-solid fa-shield-halved"></i> Aviso de Privacidad
+                </p>
+                <p style="max-width: 600px; margin: 0 auto 25px; color: var(--text-muted); font-family: 'Inter'; font-size: 0.8rem; line-height: 1.6; opacity: 0.8;">
+                    Los datos personales y profesionales aquí mostrados son de carácter público y se exhiben exclusivamente con fines de validación de competencias y transparencia profesional.
+                </p>
+                <p style="color: var(--primary-slate); font-family: 'Poppins'; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px;">
+                    ÚLTIMA ACTUALIZACIÓN: ABRIL 2026
+                </p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const cards = document.querySelectorAll('.cert-card');
+        const emptyState = document.querySelector('.empty-state');
+
+        searchInput.addEventListener('input', function() {
+            const term = this.value.toLowerCase().trim();
+            let anyVisible = false;
+
+            cards.forEach(card => {
+                const searchData = card.getAttribute('data-search') || '';
+                const matches = searchData.toLowerCase().includes(term);
+                card.style.display = matches ? 'flex' : 'none';
+                if (matches) anyVisible = true;
+            });
+
+            // Ocultar títulos de sección si no hay tarjetas visibles en su grupo
+            document.querySelectorAll('.section-title').forEach(title => {
+                const grid = title.nextElementSibling;
+                if (grid) {
+                    const visibleCards = grid.querySelectorAll('.cert-card[style*="display: flex"]');
+                    title.style.display = visibleCards.length > 0 ? 'flex' : 'none';
+                }
+            });
+
+            if (emptyState) {
+                emptyState.style.display = anyVisible ? 'none' : 'block';
+            }
+        });
+    </script>
+</body>
+</html>
