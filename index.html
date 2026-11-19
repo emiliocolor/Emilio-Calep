@@ -717,6 +717,79 @@
             gap: 8px;
         }
 
+        .autoria-section {
+            padding: 80px 0;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .autoria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .obra-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            padding: 28px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .obra-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .obra-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 14px;
+        }
+
+        .obra-icono {
+            width: 38px;
+            height: 38px;
+            border-radius: 8px;
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+        }
+
+        .obra-anio {
+            display: inline-block;
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            padding: 3px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .obra-card h3 {
+            font-size: 1.08rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.45;
+            margin-bottom: 10px;
+        }
+
+        .obra-tipo {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
         footer {
             padding: 60px 0 30px;
             background: var(--bg-white);
@@ -881,6 +954,7 @@
         <div class="container header-content">
             <nav id="mainNav">
                 <a href="#formacion">Formación</a>
+                <a href="#autoria">Autoría</a>
                 <a href="https://www.linkedin.com/in/emilio-calep-vargas-y%C3%A1%C3%B1ez-188459385/" target="_blank" rel="noopener noreferrer" class="btn-outline-header">
                     <i class="fab fa-linkedin-in"></i> LinkedIn
                 </a>
@@ -946,110 +1020,266 @@
         </div>
     </section>
 
-<section class="section-alt" id="formacion">
-    <div class="container">
-        <div class="section-header">
-            <h2>Formación &amp; Certificaciones</h2>
-            <p>Historial académico, diplomados y certificaciones complementarias.</p>
-        </div>
-
-        <div class="edu-cert-grid">
-            <div class="historial-academico">
-                <h3>Educación</h3>
-
-                <div class="historial-grupo">
-                    <h4 class="historial-grupo-titulo">
-                        Formación académica
-                    </h4>
-
-                    <div class="historial-lista">
-                        <div class="historial-item">
-                            <h4>Técnico en Mecatrónica</h4>
-                            <p class="historial-institucion">CECyT 9 "Juan de Dios Bátiz" · Instituto Politécnico Nacional</p>
-                            <span class="historial-periodo">2023 – 2026</span>
-                        </div>
-
-                        <div class="historial-item">
-                            <h4>Ingeniería en Inteligencia Artificial</h4>
-                            <p class="historial-institucion">ESCOM · Instituto Politécnico Nacional</p>
-                            <span class="historial-periodo">En curso</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="historial-grupo">
-                    <h4 class="historial-grupo-titulo">
-                        Diplomados
-                    </h4>
-
-                    <div class="historial-lista">
-                        <div class="historial-item">
-                            <h4>Diplomado en Fundamentos de Full Stack</h4>
-                            <p class="historial-institucion">Desarrollo web integral: frontend y backend.</p>
-                            <span class="historial-periodo">2025</span>
-                        </div>
-
-                        <div class="historial-item">
-                            <h4>Diplomado en Mejoramiento de la Calidad del Aire</h4>
-                            <p class="historial-institucion">Gestión ambiental y sostenibilidad urbana.</p>
-                            <span class="historial-periodo">2025</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="historial-footer">
-                    <a href="diplomados-rutas.html" class="enlace-gris">
-                        Ver más detalles de diplomados <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+    <section class="section-alt" id="formacion">
+        <div class="container">
+            <div class="section-header">
+                <h2>Formación &amp; Certificaciones</h2>
+                <p>Historial académico, diplomados y certificaciones complementarias.</p>
             </div>
 
-            <div class="certificaciones-wrap">
-                <h3>Certificaciones</h3>
+            <div class="edu-cert-grid">
+                <div class="historial-academico">
+                    <h3>Educación</h3>
 
-                <div class="cert-grupo">
-                    <h4 class="cert-grupo-titulo">
-                        Habilidades Blandas
-                    </h4>
-                    <p>Comunicación efectiva, liderazgo, pensamiento crítico y trabajo colaborativo.</p>
-                    <div class="cert-enlaces">
-                        <a href="habilidades-blandas.html" class="enlace-gris">Consultar certificaciones <i class="fas fa-arrow-right"></i></a>
+                    <div class="historial-grupo">
+                        <h4 class="historial-grupo-titulo">
+                            Formación académica
+                        </h4>
+
+                        <div class="historial-lista">
+                            <div class="historial-item">
+                                <h4>Técnico en Mecatrónica</h4>
+                                <p class="historial-institucion">CECyT 9 "Juan de Dios Bátiz" · Instituto Politécnico Nacional</p>
+                                <span class="historial-periodo">2023 – 2026</span>
+                            </div>
+
+                            <div class="historial-item">
+                                <h4>Ingeniería en Inteligencia Artificial</h4>
+                                <p class="historial-institucion">ESCOM · Instituto Politécnico Nacional</p>
+                                <span class="historial-periodo">En curso</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="historial-grupo">
+                        <h4 class="historial-grupo-titulo">
+                            Diplomados
+                        </h4>
+
+                        <div class="historial-lista">
+                            <div class="historial-item">
+                                <h4>Diplomado en Fundamentos de Full Stack</h4>
+                                <p class="historial-institucion">Desarrollo web integral: frontend y backend.</p>
+                                <span class="historial-periodo">2025</span>
+                            </div>
+
+                            <div class="historial-item">
+                                <h4>Diplomado en Mejoramiento de la Calidad del Aire</h4>
+                                <p class="historial-institucion">Gestión ambiental y sostenibilidad urbana.</p>
+                                <span class="historial-periodo">2025</span>
+                            </div>
+                                                        <div class="historial-item">
+                                <h4>Diplomado en Desarrollo de estrategias digitales de aprendizaje</h4>
+                                <p class="historial-institucion">Diseño y aplicación de recursos educativos digitales.</p>
+                                <span class="historial-periodo">En curso</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="historial-footer">
+                        <a href="diplomados-rutas.html" class="enlace-gris">
+                            Ver más detalles de diplomados <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
 
-                <div class="cert-grupo">
-                    <h4 class="cert-grupo-titulo">
-                        Tecnológicas &amp; Empresariales
-                    </h4>
-                    <p>Dominio de herramientas digitales, metodologías ágiles y visión emprendedora.</p>
-                    <div class="cert-enlaces">
-                        <a href="habilidades-tecnologicas-empresariales.html" class="enlace-gris">Consultar certificaciones <i class="fas fa-arrow-right"></i></a>
+<div class="certificaciones-wrap">
+                    <h3>Certificaciones</h3>
+                    <p style="font-size: 0.9rem; color: var(--text-muted); margin-top: -16px; margin-bottom: 20px;">
+                        Más de 50 certificaciones distribuidas en las siguientes áreas:
+                    </p>
+
+                    <div class="cert-grid-2x2">
+                        <div class="cert-card">
+                            <h4 class="cert-grupo-titulo">
+                                Habilidades Blandas
+                            </h4>
+                            <p>Comunicación efectiva, liderazgo, pensamiento crítico y trabajo colaborativo.</p>
+                            <div class="cert-enlaces">
+                                <a href="habilidades-blandas.html" class="enlace-gris">Consultar certificaciones <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <h4 class="cert-grupo-titulo">
+                                Tecnológicas &amp; Empresariales
+                            </h4>
+                            <p>Dominio de herramientas digitales, metodologías ágiles y visión emprendedora.</p>
+                            <div class="cert-enlaces">
+                                <a href="habilidades-tecnologicas-empresariales.html" class="enlace-gris">Consultar certificaciones <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <h4 class="cert-grupo-titulo">
+                                Sustentabilidad &amp; Medio Ambiente
+                            </h4>
+                            <p>Certificados orientados al desarrollo sostenible.</p>
+                            <div class="cert-enlaces">
+                                <a href="certificaciones-sustentabilidad.html" class="enlace-gris">Consultar certificaciones <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="cert-card">
+                            <h4 class="cert-grupo-titulo">
+                                Rutas del Conocimiento
+                            </h4>
+                            <p>Diplomados y rutas orientadas al desarrollo de habilidades técnicas, tecnológicas y profesionales.</p>
+                            <div class="cert-enlaces">
+                                <a href="diplomados-rutas.html" class="enlace-gris">Explorar rutas <i class="fas fa-arrow-right"></i></a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="cert-grupo">
-                    <h4 class="cert-grupo-titulo">
-                        Sustentabilidad &amp; Medio Ambiente
-                    </h4>
-                    <p>Certificados orientados al desarrollo sostenible.</p>
-                    <div class="cert-enlaces">
-                        <a href="certificaciones-sustentabilidad.html" class="enlace-gris">Consultar certificaciones <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                <style>
+                    .cert-grid-2x2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
 
-                <div class="cert-grupo">
-                    <h4 class="cert-grupo-titulo">
-                        Rutas del Conocimiento
-                    </h4>
-                    <p>Diplomados y rutas orientadas al desarrollo de habilidades técnicas, tecnológicas y profesionales.</p>
-                    <div class="cert-enlaces">
-                        <a href="diplomados-rutas.html" class="enlace-gris">Explorar rutas <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+        .cert-card {
+            background: var(--bg-primary);
+            border: 1px solid var(--border-light);
+            padding: 18px 16px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .cert-card .cert-grupo-titulo {
+            margin-bottom: 8px;
+        }
+
+        .cert-card p {
+            font-size: 0.86rem;
+            color: var(--text-muted);
+            line-height: 1.55;
+            margin-bottom: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .cert-grid-2x2 {
+                grid-template-columns: 1fr;
+            }
+        }
+                </style>
+
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
+<section class="autoria-section" id="autoria">
+        <div class="container">
+            <div class="section-header">
+                <h2>Autor de</h2>
+                <p>Obras literarias, libros académicos y manuales especializados.</p>
+            </div>
+
+            <div class="autoria-grid">
+                <article class="obra-card">
+                    <div>
+                        <div class="obra-header">
+                        <!--     <span class="obra-icono"><i class="fas fa-book"></i></span> -->
+                            <span class="obra-anio">2026</span>
+                        </div>
+                        <h3>La Esperanza Matemática: Probabilidad y Estadística Preuniversitaria</h3>
+                    </div>
+                    <div>
+                        <span class="obra-tipo">Libro académico</span>
+                        <div class="cert-enlaces" style="margin-top: 12px;">
+                            <a href="https://hotmart.com/es/marketplace/productos/hagsxd-la-esperanza-matematica-probabilidad-y-estadistica-preuniversitaria-0kmfu/G108298484A" target="_blank" rel="noopener noreferrer" class="enlace-gris">
+                                Abrir publicación <i class="fas fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="obra-card">
+                    <div>
+                        <div class="obra-header">
+                        <!--     <span class="obra-icono"><i class="fas fa-book-open"></i></span> -->
+                            <span class="obra-anio">2026</span>
+                        </div>
+                        <h3>Crónicas de un trébol</h3>
+                    </div>
+                    <div>
+                        <span class="obra-tipo">Obra literaria</span>
+                        <div class="cert-enlaces" style="margin-top: 12px;">
+                            <!-- <a href="URL_DE_LA_PUBLICACION" target="_blank" rel="noopener noreferrer" class="enlace-gris">
+                                Abrir publicación <i class="fas fa-arrow-right"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </article>
+
+                <article class="obra-card">
+                    <div>
+                        <div class="obra-header">
+                        <!--     <span class="obra-icono"><i class="fas fa-file-alt"></i></span> -->
+                            <span class="obra-anio">2025</span>
+                        </div>
+                        <h3>Manual para el reconocimiento y manejo de la violencia</h3>
+                    </div>
+                    <div>
+                        <span class="obra-tipo">Manual especializado</span>
+                        <div class="cert-enlaces" style="margin-top: 12px;">
+                            <!-- <a href="URL_DE_LA_PUBLICACION" target="_blank" rel="noopener noreferrer" class="enlace-gris">
+                                Abrir publicación <i class="fas fa-arrow-right"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </article>
+
+                <article class="obra-card">
+                    <div>
+                        <div class="obra-header">
+                        <!--     <span class="obra-icono"><i class="fas fa-file-alt"></i></span> -->
+                            <span class="obra-anio">2024</span>
+                        </div>
+                        <h3>Manual de apoyo integral para las redes de género del IPN</h3>
+                    </div>
+                    <div>
+                        <span class="obra-tipo">Manual institucional</span>
+                        <div class="cert-enlaces" style="margin-top: 12px;">
+                            <!-- <a href="URL_DE_LA_PUBLICACION" target="_blank" rel="noopener noreferrer" class="enlace-gris">
+                                Abrir publicación <i class="fas fa-arrow-right"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </article>
+
+                <article class="obra-card">
+                    <div>
+                        <div class="obra-header">
+                        <!--     <span class="obra-icono"><i class="fas fa-book-open"></i></span> -->
+                            <span class="obra-anio">2023</span>
+                        </div>
+                        <h3>El misterio de Yanggakdo</h3>
+                    </div>
+                    <div>
+                        <span class="obra-tipo">Obra literaria</span>
+                        <div class="cert-enlaces" style="margin-top: 12px;">
+                            <!-- <a href="URL_DE_LA_PUBLICACION" target="_blank" rel="noopener noreferrer" class="enlace-gris">
+                                Abrir publicación <i class="fas fa-arrow-right"></i>
+                            </a> -->
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center; margin-top: 28px;">
+                Obras registradas ante el Instituto Nacional del Derecho de Autor <a href="https://indautor.gob.mx/" target="_blank" rel="noopener noreferrer" style="text-decoration: underline;">INDAUTOR</a>, México.
+            </p>
+        </div>
+    </section>
 
     <footer>
         <div class="container">
