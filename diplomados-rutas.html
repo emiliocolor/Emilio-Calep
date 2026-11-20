@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- ETIQUETA NOINDEX: esta página NO debe indexarse -->
+    <meta name="robots" content="noindex, nofollow">
+    <title>Diplomados &amp; Rutas de Conocimiento | Emilio Calep</title>
+
+    <link rel="icon" type="image/png" href="https://emiliocolor.com/img-logos/favicon.png" />
+    <link rel="apple-touch-icon" href="https://emiliocolor.com/img-logos/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #F8FAFC;
+            --bg-white: #FFFFFF;
+            --text-dark: #1E293B;
+            --text-muted: #475569;
+            --blue-primary: #0e42ee;
+            --blue-soft: #DBEAFE;
+            --border-light: #E2E8F0;
+            --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+            --font: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg-primary);
+            color: var(--text-dark);
+            line-height: 1.6;
+            padding-top: 70px;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 16px 0;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            transition: color 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--blue-primary);
+        }
+
+        .btn-outline-header {
+            border: 1.5px solid #0A66C2;
+            padding: 8px 22px;
+            border-radius: 30px;
+            color: #0A66C2;
+            font-weight: 600;
+            font-size: 0.8rem;
+            transition: 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline-header:hover {
+            background: #0A66C2;
+            color: #fff;
+        }
+
+        /* ============ HERO SUB-PÁGINA ============ */
+        .hero-back {
+            position: relative;
+            padding: 50px 0 60px;
+            background: linear-gradient(135deg, #EFF6FF 0%, #FFFFFF 100%);
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .hero-back h1 {
+            font-size: 2.8rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+            color: var(--text-dark);
+        }
+
+        .hero-back .subtitulo {
+            font-size: 1.05rem;
+            color: var(--text-muted);
+            max-width: 720px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* ============ SECTION ============ */
+        section {
+            padding: 70px 0 80px;
+        }
+
+        .section-alt {
+            background: var(--bg-white);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        /* ============ SEARCH ============ */
+        .search-container {
+            margin-bottom: 50px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 600px;
+            padding: 16px 26px;
+            border-radius: 30px;
+            border: 1px solid var(--border-light);
+            background: var(--bg-primary);
+            font-size: 1rem;
+            font-family: var(--font);
+            color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
+            transition: 0.3s ease;
+            outline: none;
+        }
+
+        .search-box::placeholder {
+            color: var(--text-muted);
+        }
+
+        .search-box:focus {
+            border-color: var(--blue-primary);
+            background: var(--bg-white);
+            box-shadow: 0 0 0 4px rgba(14, 66, 238, 0.1);
+        }
+
+        /* ============ CATEGORÍAS ============ */
+        .category-section {
+            margin-bottom: 56px;
+        }
+
+        .category-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 26px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border-light);
+            flex-wrap: wrap;
+        }
+
+        .category-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .category-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: -0.5px;
+        }
+
+        .category-badge {
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: auto;
+        }
+
+        /* ============ GRID & CARDS ============ */
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .cert-card {
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            border-radius: 15px;
+            box-shadow: var(--shadow-sm);
+            padding: 26px 24px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .cert-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--blue-soft);
+            color: var(--blue-primary);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            align-self: flex-start;
+            margin-bottom: 14px;
+        }
+
+        /* Variantes de badge por tipo */
+        .cert-badge.diploma {
+            background: rgba(15, 118, 110, 0.12);
+            color: #0f766e;
+        }
+
+        .cert-badge.ruta {
+            background: rgba(180, 83, 9, 0.12);
+            color: #b45309;
+        }
+
+        .cert-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            line-height: 1.4;
+            margin-bottom: 16px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        .info-row i {
+            color: var(--blue-primary);
+            width: 16px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        .copy-container {
+            margin-top: 16px;
+            margin-bottom: 18px;
+        }
+
+        .copy-label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: var(--blue-primary);
+            margin-bottom: 6px;
+            letter-spacing: 0.5px;
+        }
+
+        .id-code {
+            background: var(--text-dark);
+            color: #e2e8f0;
+            padding: 12px 14px;
+            border-radius: 8px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.75rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 8px;
+            transition: background 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .id-code:hover {
+            background: #0F172A;
+        }
+
+        .id-code:active {
+            transform: scale(0.98);
+        }
+
+        .id-code span {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .id-code i {
+            color: #94A3B8;
+            flex-shrink: 0;
+        }
+
+        .btn-view {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background: var(--blue-primary);
+            color: #fff;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin-top: auto;
+        }
+
+        .btn-view:hover {
+            background: #1E3A8A;
+            gap: 12px;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(14, 66, 238, 0.3);
+        }
+
+        /* ============ EMPTY STATE ============ */
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: var(--blue-primary);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+
+        .empty-state p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .empty-state p.small {
+            font-size: 0.9rem;
+            margin-top: 8px;
+        }
+
+        /* ============ TOAST ============ */
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--blue-primary);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1000;
+            pointer-events: none;
+            box-shadow: 0 8px 24px rgba(14, 66, 238, 0.3);
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        /* ============ FOOTER ============ */
+        footer {
+            padding: 60px 0 30px;
+            background: var(--bg-primary);
+            border-top: 1px solid var(--border-light);
+        }
+
+        .privacy-notice {
+            text-align: center;
+            max-width: 720px;
+            margin: 0 auto 40px;
+            padding: 26px 24px;
+            background: var(--bg-white);
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .privacy-notice .privacy-title {
+            color: var(--text-dark);
+            font-weight: 700;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .privacy-notice .privacy-title i {
+            color: var(--blue-primary);
+        }
+
+        .privacy-notice .privacy-text {
+            color: var(--text-muted);
+            font-size: 0.82rem;
+            line-height: 1.6;
+            margin-bottom: 16px;
+        }
+
+        .privacy-notice .privacy-date {
+            color: var(--blue-primary);
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+
+        .footer-email {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-email i {
+            color: var(--blue-primary);
+        }
+
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-socials a {
+            font-size: 1.3rem;
+            color: var(--text-muted);
+            transition: 0.3s;
+        }
+
+        .footer-socials a:hover {
+            color: var(--blue-primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-light);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .hero-back h1 {
+                font-size: 2rem;
+            }
+
+            .hero-back {
+                padding: 36px 0 44px;
+            }
+
+            .hero-back .subtitulo {
+                font-size: 0.95rem;
+            }
+
+            .category-title {
+                font-size: 1.3rem;
+            }
+
+            .category-badge {
+                margin-left: 0;
+                width: 100%;
+            }
+
+            .bento-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            section {
+                padding: 50px 0 60px;
+            }
+
+            .search-box {
+                padding: 14px 22px;
+                font-size: 0.95rem;
+            }
+
+            .back-link {
+                font-size: 0.85rem;
+            }
+
+            .btn-outline-header {
+                padding: 7px 16px;
+                font-size: 0.75rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-email {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .privacy-notice {
+                padding: 20px 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-back h1 {
+                font-size: 1.7rem;
+            }
+
+            .cert-card {
+                padding: 22px 18px;
+            }
+
+            .cert-title {
+                font-size: 1.05rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ============ HEADER ============ -->
+    <header>
+        <div class="container header-content">
+            <a href="index.html" class="back-link">
+                <i class="fas fa-arrow-left"></i> Volver al portafolio
+            </a>
+            <a href="https://www.linkedin.com/in/emilio-calep-vargas-y%C3%A1%C3%B1ez-188459385/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn-outline-header">
+                <i class="fab fa-linkedin-in"></i> LinkedIn
+            </a>
+        </div>
+    </header>
+
+    <!-- ============ HERO ============ -->
+    <section class="hero-back">
+        <div class="container">
+            <h1>Diplomados &amp; Rutas de Conocimiento</h1>
+            <p class="subtitulo">
+                Programas formativos de mayor profundidad: diplomados especializados y rutas
+                de conocimiento orientadas al desarrollo de habilidades técnicas, tecnológicas
+                y profesionales.
+            </p>
+        </div>
+    </section>
+
+    <!-- ============ CONTENIDO ============ -->
+    <section class="section-alt">
+        <div class="container">
+            <div class="search-container">
+                <input type="text"
+                       class="search-box"
+                       placeholder="Buscar por título o ID de credencial..."
+                       id="searchInput"
+                       autocomplete="off" />
+            </div>
+            <div id="categoriesContainer"></div>
+        </div>
+    </section>
+
+    <!-- ============ FOOTER ============ -->
+    <footer>
+        <div class="container">
+            <div class="privacy-notice">
+                <p class="privacy-title">
+                    <i class="fas fa-shield-halved"></i> Aviso de Privacidad
+                </p>
+                <p class="privacy-text">
+                    Los datos personales y profesionales aquí mostrados (diplomados, rutas de
+                    conocimiento, folios de credencial e historial académico) son de carácter
+                    público y se exhiben exclusivamente con fines de validación de competencias
+                    y transparencia profesional.
+                </p>
+                <p class="privacy-date">Última actualización: Abril 2026</p>
+            </div>
+
+            <div class="footer-content">
+                <div class="footer-email">
+                    <i class="fas fa-envelope"></i> contacto@emiliocalep.emiliocolor.com
+                </div>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/emilio-calep-vargas-y%C3%A1%C3%B1ez-188459385/"
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>&copy; 2023-<span id="current-year"></span> Emilio Calep. Todos los derechos reservados.</span>
+                <span>Hecho con <i class="fas fa-heart" style="color: #0e42ee;"></i> en México</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============ TOAST ============ -->
+    <div class="toast" id="toast">ID copiado al portapapeles</div>
+
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+
+        /* ============================================================
+           DATOS: DIPLOMADOS Y RUTAS
+        ============================================================ */
+        const BASE_URL = "https://aprende.org/verifica/9fae22be-646f-426b-959a-6253a9287006/";
+
+        const diplomadosRutas = [
+            // ========== RUTAS DE CONOCIMIENTO ==========
+            {
+                id: 1,
+                nombre: "Ruta Prepara tus productos para venta",
+                tipo: "ruta",
+                emisor: "Capacítate para el Empleo",
+                fecha: "Diciembre 2023",
+                idC: "11a6f9de-4298-41b9-8687-56d9f7c6aa33",
+                url: BASE_URL + "11a6f9de-4298-41b9-8687-56d9f7c6aa33/"
+            },
+            {
+                id: 2,
+                nombre: "Ruta ¿Cómo utilizar el celular?",
+                tipo: "ruta",
+                emisor: "Capacítate para el Empleo",
+                fecha: "10 Marzo 2024",
+                idC: "b247c30a-4cd6-427f-9703-c1e6fbe92737",
+                url: BASE_URL + "b247c30a-4cd6-427f-9703-c1e6fbe92737/"
+            },
+            {
+                id: 3,
+                nombre: "Ruta Cuidador del planeta",
+                tipo: "ruta",
+                emisor: "Capacítate para el Empleo",
+                fecha: "Diciembre 2023",
+                idC: "da4c8a72-6ae8-40df-b3e5-2753bd08a3f1",
+                url: BASE_URL + "da4c8a72-6ae8-40df-b3e5-2753bd08a3f1/"
+            },
+
+            // ========== DIPLOMADOS ==========
+            {
+                id: 4,
+                nombre: "Diplomado en Mejoramiento de la calidad del aire",
+                tipo: "diploma",
+                emisor: "Capacítate para el Empleo",
+                fecha: "Marzo 2024",
+                idC: "d2024179-3e33-4125-bfc8-095b4aa56918",
+                url: BASE_URL + "d2024179-3e33-4125-bfc8-095b4aa56918/"
+            },
+            {
+                id: 5,
+                nombre: "Diplomado en Fundamentos de Full Stack",
+                tipo: "diploma",
+                emisor: "Capacítate para el Empleo",
+                fecha: "Agosto 2025",
+                idC: "bf528dfc-e609-4e2c-8968-634100f3cdc5",
+                url: BASE_URL + "bf528dfc-e609-4e2c-8968-634100f3cdc5/"
+            }
+        ];
+
+        /* ============================================================
+           UTILIDADES
+        ============================================================ */
+        function normalizeText(text) {
+            return text.toLowerCase()
+                .normalize("NFD")
+                .replace(/[\u0300-\u036f]/g, "")
+                .replace(/[^a-z0-9\s]/g, "");
+        }
+
+        function escapeHtml(str) {
+            if (!str) return '';
+            return String(str).replace(/[&<>]/g, function (m) {
+                if (m === '&') return '&amp;';
+                if (m === '<') return '&lt;';
+                if (m === '>') return '&gt;';
+                return m;
+            });
+        }
+
+        const toast = document.getElementById('toast');
+        const categoriesContainer = document.getElementById('categoriesContainer');
+
+        function copyToClipboard(text) {
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+                navigator.clipboard.writeText(text);
+            } else {
+                const tmp = document.createElement('textarea');
+                tmp.value = text;
+                document.body.appendChild(tmp);
+                tmp.select();
+                document.execCommand('copy');
+                document.body.removeChild(tmp);
+            }
+            toast.classList.add('show');
+            setTimeout(() => toast.classList.remove('show'), 2000);
+        }
+        window.copyToClipboard = copyToClipboard;
+
+        /* ============================================================
+           RENDER
+        ============================================================ */
+        function renderCard(item) {
+            const card = document.createElement('article');
+            card.className = 'cert-card';
+
+            const isDiploma = item.tipo === 'diploma';
+            const badgeClass = isDiploma ? 'diploma' : 'ruta';
+            const badgeIcon = isDiploma
+                ? '<i class="fas fa-graduation-cap"></i>'
+                : '<i class="fas fa-map-signs"></i>';
+            const badgeText = isDiploma ? 'Diplomado' : 'Ruta de conocimiento';
+
+            card.innerHTML = `
+                <span class="cert-badge ${badgeClass}">${badgeIcon} ${badgeText}</span>
+                <h2 class="cert-title">${escapeHtml(item.nombre)}</h2>
+                <div class="info-row"><i class="fas fa-landmark"></i> <span>${escapeHtml(item.emisor)}</span></div>
+                <div class="info-row"><i class="fas fa-calendar"></i> <span>${escapeHtml(item.fecha)}</span></div>
+
+                <div class="copy-container">
+                    <span class="copy-label">ID de credencial (clic para copiar)</span>
+                    <div class="id-code" onclick="copyToClipboard('${item.idC}')" title="Clic para copiar el ID completo">
+                        <span>${escapeHtml(item.idC.substring(0, 25))}...</span>
+                        <i class="far fa-copy"></i>
+                    </div>
+                </div>
+
+                <a href="${item.url}" target="_blank" rel="noopener noreferrer" class="btn-view">
+                    Mostrar credencial <i class="fas fa-arrow-up-right-from-square"></i>
+                </a>
+            `;
+            return card;
+        }
+
+        function renderCategories(diplomas, rutas) {
+            categoriesContainer.innerHTML = '';
+
+            // Sección Diplomados
+            if (diplomas.length > 0) {
+                const diplomaSection = document.createElement('div');
+                diplomaSection.className = 'category-section';
+                diplomaSection.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div class="category-title">Diplomados</div>
+                        <div class="category-badge">${diplomas.length} certificaciones</div>
+                    </div>
+                    <div class="bento-grid" id="diplomaGrid"></div>
+                `;
+                categoriesContainer.appendChild(diplomaSection);
+                const diplomaGrid = diplomaSection.querySelector('#diplomaGrid');
+                diplomas.forEach(d => diplomaGrid.appendChild(renderCard(d)));
+            }
+
+            // Sección Rutas de Conocimiento
+            if (rutas.length > 0) {
+                const routeSection = document.createElement('div');
+                routeSection.className = 'category-section';
+                routeSection.innerHTML = `
+                    <div class="category-header">
+                        <div class="category-icon"><i class="fas fa-map-signs"></i></div>
+                        <div class="category-title">Rutas de Conocimiento</div>
+                        <div class="category-badge">${rutas.length} certificaciones</div>
+                    </div>
+                    <div class="bento-grid" id="routeGrid"></div>
+                `;
+                categoriesContainer.appendChild(routeSection);
+                const routeGrid = routeSection.querySelector('#routeGrid');
+                rutas.forEach(r => routeGrid.appendChild(renderCard(r)));
+            }
+
+            // Sin resultados
+            if (diplomas.length === 0 && rutas.length === 0) {
+                const emptyDiv = document.createElement('div');
+                emptyDiv.className = 'empty-state';
+                emptyDiv.innerHTML = `
+                    <i class="fas fa-search"></i>
+                    <p>No se encontraron diplomados o rutas</p>
+                    <p class="small">Intenta con otros términos de búsqueda</p>
+                `;
+                categoriesContainer.appendChild(emptyDiv);
+            }
+        }
+
+        /* ============================================================
+           BÚSQUEDA
+        ============================================================ */
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            const normalizedTerm = normalizeText(e.target.value.trim());
+
+            const filtrados = diplomadosRutas.filter(item => {
+                const normalizedNombre = normalizeText(item.nombre);
+                const normalizedId = item.idC.toLowerCase();
+                return normalizedNombre.includes(normalizedTerm) ||
+                       normalizedId.includes(normalizedTerm);
+            });
+
+            renderCategories(
+                filtrados.filter(i => i.tipo === 'diploma'),
+                filtrados.filter(i => i.tipo === 'ruta')
+            );
+        });
+
+        /* ============================================================
+           RENDER INICIAL
+        ============================================================ */
+        renderCategories(
+            diplomadosRutas.filter(i => i.tipo === 'diploma'),
+            diplomadosRutas.filter(i => i.tipo === 'ruta')
+        );
+    </script>
+</body>
+</html>
